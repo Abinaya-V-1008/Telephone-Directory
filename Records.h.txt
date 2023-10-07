@@ -1,0 +1,64 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+class Phone_Directory
+{
+	struct node
+	{
+		int count ; //For storing the frequency of a node
+		string phone_num,name;
+		node *left,*right;
+		node()
+		{
+			count = 0;
+		}
+    };
+
+	public:
+		static int count;
+		node *EmptyRecord, *root;
+		//Constructor
+		Phone_Directory();
+		//Destructor
+		~Phone_Directory();
+		//Inserting records(one at a time)
+		void Insert_Record(string, string);
+		//Deleting one record at a time
+		void Delete_Record(string);
+
+		void splay(string, node *&);
+		//to check if the string is present in the tree
+		bool contains(string);
+		//to check if Empty or not
+		bool Is_Empty();
+		//to delete all nodes in the splay tree
+		void Make_Empty(node *&);
+		//display the elements
+		void Display_Records(node *);
+        //preorder traversal of the splay tree
+		void Preorder(node *&);
+
+		void LL(node *&);
+
+		void RR(node *&);
+
+		void search_key(string);
+		//partial match check for phone number
+		void Partial_Matches(string);
+		//partial match check for name
+		void Partial_Matches_Name(string);
+		//frequency of the search
+		void Frequent_keys();
+		//sorting in descending order
+		void Sorting(vector<node *>&);
+		//searching by name
+        void search_by_name(const string &);
+        //to check if name is present
+        bool name_found( string &);
+
+        void search_by_name(node * n, const string &);
+
+        bool name_found(node * n, const string &);
+};

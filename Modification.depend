@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1667892300 source:c:\users\kanis\onedrive\documents\sem3\ads\package\modification\main.cpp
+	<iostream>
+	<string>
+	<stdlib.h>
+	"Records.h"
+
+1667904550 c:\users\kanis\onedrive\documents\sem3\ads\package\modification\records.h
+	<iostream>
+	<vector>
+	<string>
+
+1667892300 source:c:\users\kanis\onedrive\documents\sem3\ads\package\modification\definitions.cpp
+	<iostream>
+	<iomanip>
+	<stack>
+	<vector>
+	<string>
+	<cstdio>
+	<bits/stdc++.h>
+	"Records.h"
+
+1667892300 source:c:\packages\sem3\modification\definitions.cpp
+	<iostream>
+	<iomanip>
+	<stack>
+	<vector>
+	<string>
+	<cstdio>
+	<bits/stdc++.h>
+	"Records.h"
+
+1667904550 c:\packages\sem3\modification\records.h
+	<iostream>
+	<vector>
+	<string>
+
+1667904911 source:c:\packages\sem3\modification\main.cpp
+	<iostream>
+	<string>
+	<stdlib.h>
+	"Records.h"
+

@@ -1,0 +1,150 @@
+#include <iostream>
+#include <string>
+#include<stdlib.h>
+#include "Records.h"
+using namespace std;
+
+string getNum()
+{
+	string phone_num;
+	cout << "\nEnter the phone number : ";
+	cin>>phone_num;
+	return phone_num;
+}
+
+string getName()
+{
+	string name;
+	cout << "\nEnter the name : ";
+	cin>> name;
+	return name;
+}
+
+int main()
+{
+	Phone_Directory directory;
+	int ch;
+    cout<<"\n\n\n\n\n\n\n\n\n\t\t\t\tWELCOME TO TELEPHONE DIRECTORY\t\t\t\t\t\n";
+    cout<<"\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\t\t\t\t\t~ABINAYA V AND KANISHKA K\n\n";
+	system("pause");
+	system("cls");
+	do
+	{
+		cout << endl<<"1.Insert a new record\n";
+		cout << "2. Delete an existing record\n";
+		cout << "3. Display\n";
+		cout << "4. Phone Number Search\n";
+		cout << "5. Name Search\n";
+		cout << "6. Partial Search\n";
+		cout << "7. Frequently searched\n";
+		cout << "8. Exit\n\n";
+		cout << "Enter your choice : ";
+		cin >> ch;
+		switch (ch)
+		{
+            case 1:
+            {
+                string name, phone_num;
+                name = getName();
+                phone_num = getNum();
+                directory.Insert_Record(phone_num, name);
+                system("pause");
+                system("cls");
+                break;
+            }
+
+            case 2:
+            {
+                string phone_num;
+                phone_num = getNum();
+                directory.Delete_Record(phone_num);
+                break;
+            }
+
+            case 3:
+            {
+                directory.count = 0;
+                if (directory.Is_Empty())
+                {
+                    cout << "\nThe phone directory has zero records\n";
+                    break;
+                }
+                directory.Display_Records(directory.root);
+                cout << "\n";
+                break;
+            }
+
+            case 4:
+            {
+                string phone_num;
+                phone_num = getNum();
+                directory.search_key(phone_num);
+                cout << "\n";
+                system("pause");
+                system("cls");
+                break;
+            }
+
+            case 5:
+            {
+                string search_name;
+                search_name = getName();
+
+                if (!directory.name_found(search_name))
+                    cout << "\nThere are no records with name " << search_name << endl;
+
+                else
+                {
+                    cout << "\n--------------------------------------------\n";
+                    cout << "Name\t\t\tPhone number" << endl;
+                    cout << "--------------------------------------------\n";
+                    directory.search_by_name(search_name);
+                      cout << "--------------------------------------------\n";
+                }
+                cout << "\n";
+                system("pause");
+                system("cls");
+                break;
+            }
+
+            case 6:
+            {
+                string partial_detail;
+                int choose = 0;
+                cout << endl<< "Enter \n i)phone number\n\t or \n ii)phone name :\n ";
+                cin >> partial_detail;
+                for (int i = 0; i < partial_detail.length(); i++)
+                {
+                    if ((partial_detail[i] >= 65 && partial_detail[i] <= 90) || (partial_detail[i] >= 97 && partial_detail[i] <= 122))
+                    {
+                        choose = 1;
+                        break;
+                    }
+                }
+                if (choose == 0)
+                    directory.Partial_Matches(partial_detail);
+                if (choose == 1)
+                    directory.Partial_Matches_Name(partial_detail);
+                cout << "\n";
+                system("pause");
+                system("cls");
+                break;
+            }
+
+            case 7:
+            {
+                directory.Frequent_keys();
+                cout << "\n";
+                system("pause");
+                system("cls");
+                break;
+            }
+        }
+
+	} while (ch != 8);
+	cout << "\n";
+    system("cls");
+	cout << "\n\n\n\n\n\n\n\t\t\t\t\t\tTHANK YOU\n\n\t\t\t\t\t\t>_<\n\n\n";
+	return 0;
+}
+
